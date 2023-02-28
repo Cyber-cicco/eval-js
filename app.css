@@ -1,3 +1,12 @@
 .clickable{
     cursor: pointer;
 }
+
+@font-face {
+    font-family: lato;
+    src: url(/assets/fonts/Lato-Black.ttf);
+}
+
+body{
+    font-family: lato, sans-serif;
+}
