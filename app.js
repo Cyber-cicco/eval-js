@@ -5,7 +5,7 @@ import GameService from "./js/service/GameService.js";
 /**
  * Tableau représentant les deux joueurs
  */
-const players = [
+let players = [
     new Player('joueur 1', 0,0),
     new Player('joueur 2',0,0)
 ]
@@ -46,7 +46,7 @@ const dice = document.querySelector('#dice');
 /**
  * bouton permettant de relancer une partie
  */
-const btnReplay = document.querySelector('new-game');
+const btnReplay = document.querySelector('#new-game');
 
 /**
  * élément HTML affichant le nom de la personne qui a gagné.
@@ -82,11 +82,16 @@ let roll = ()=>{
             textGagnant.innerHTML = players[idxOfCurrentPlayer].name +" a gagné";
             btnRoll.removeEventListener('click', roll);
             btnHold.removeEventListener('click', hold);
+            hold();
+
 
         }
     }
 }
 
+/**
+ * fonction s'occupant du traitement du click sur le bouton hold
+ */
 let hold = ()=>{
     players[idxOfCurrentPlayer].globalScore = players[idxOfCurrentPlayer].currentScore + players[idxOfCurrentPlayer].globalScore;
     players[idxOfCurrentPlayer].currentScore = 0;
@@ -95,7 +100,25 @@ let hold = ()=>{
     idxOfCurrentPlayer = gameService.changeTurn(idxOfCurrentPlayer);
 }
 
+/**
+ * fonction permettant de remettre les variables à zéro.
+ */
+let reset = ()=>{
+    players = [
+        new Player('joueur 1', 0,0),
+        new Player('joueur 2',0,0)
+    ];
+    currentScores.forEach(score => score.innerHTML = 0);
+    globalScores.forEach(score => score.innerHTML = 0);
+    idxOfCurrentPlayer = 0;
+    btnRoll.addEventListener('click', roll);
+    btnHold.addEventListener("click", hold);
+    textGagnant.innerHTML = "";
+}
 
-btnRoll.addEventListener("click", roll);
 
-btnHold.addEventListener("click", hold);
+btnRoll.addEventListener('click', roll);
+
+btnHold.addEventListener('click', hold);
+
+btnReplay.addEventListener('click', reset);
