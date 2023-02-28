@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Jeu 2D</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    </head>
+<body class="p-2">
+    <p class="text-secondary text-center"><button class="btn btn-secondary">+</button> Créer une nouvelle partie</p>
+    <div class="d-flex justify-content-center mt-2">
+        <main class="d-flex justify-content-around w-75">
+            <div class="d-flex flex-column align-content-center m-1 justify-content-center">
+                <div class="h3 mb-5">Player 1</div>
+                <div class="h1 text-center mb-5 text-danger">0</div>
+                <div class="bg-danger p-2 d-flex flex-column align-content-center text-white">
+                    <div class="text-center">Current</div>
+                    <div class="text-center">0</div>
+                </div>
+            </div>
+            <div class="d-flex flex-column align-content-center m-1 justify-content-center">
+                <img src="./assets/images/de1.png" width="200">
+                <div class="text-center text-secondary h3 mt-2"><img src="./assets/images/Roll_icon.png" alt="roll" width="25" class="ms-1">Roll dice</div>
+                <div class="text-center text-secondary h3 mt-2"><img src="./assets/images/icons8-downloading-updates-60.png" alt="hold" width="25" class="ms-1">Hold</div>
+            </div>
+            <div class="d-flex flex-column align-content-center m-1 justify-content-center">
+                <div class="h3 mb-5">Player 2</div>
+                <div class="h1 text-center mb-5 text-danger">0</div>
+                <div class="bg-danger p-2 d-flex flex-column align-content-center text-white">
+                    <div class="text-center">Current</div>
+                    <div class="text-center">0</div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
